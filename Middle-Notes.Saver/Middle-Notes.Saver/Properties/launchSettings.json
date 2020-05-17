@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Middle-Notes.Saver": {
+      "commandName": "Project",
+      "commandLineArgs": "aggregates"
+    }
+  }
+}

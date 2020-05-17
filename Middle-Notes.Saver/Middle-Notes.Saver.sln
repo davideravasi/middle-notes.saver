@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Middle-Notes.Saver", "Middle-Notes.Saver\Middle-Notes.Saver.csproj", "{DABDC234-40E4-41AA-9871-2708E637CA3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DABDC234-40E4-41AA-9871-2708E637CA3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DABDC234-40E4-41AA-9871-2708E637CA3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DABDC234-40E4-41AA-9871-2708E637CA3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DABDC234-40E4-41AA-9871-2708E637CA3B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6EDB037D-A1A2-4B93-91A0-84F11716E88C}
+	EndGlobalSection
+EndGlobal
