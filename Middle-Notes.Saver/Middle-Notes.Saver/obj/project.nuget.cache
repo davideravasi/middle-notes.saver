@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YLvTRY0c+c21fBlMfrUnqxCg2gBrxfQpQP3rOA/ebVKVrVaYn0heJdnQ8eWmTXidGWr8HJdR00t7Xz9atG5NTg==",
+  "dgSpecHash": "Jt1vZ2BKfMoQZ2HUanmLOdakJUxOy+FdhJPngzcE+NP0OKJ6HYFoa2Lqb+/iR1cz2ap+yLXKmeon9rUqwpKocw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Davide\\Documents\\GitHub\\middle-notes.saver\\Middle-Notes.Saver\\Middle-Notes.Saver\\Middle-Notes.Saver.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "C:\\Users\\Davide\\.nuget\\packages\\selenium.webdriver\\3.141.0\\selenium.webdriver.3.141.0.nupkg.sha512",
     "C:\\Users\\Davide\\.nuget\\packages\\serilog\\2.9.0\\serilog.2.9.0.nupkg.sha512",
     "C:\\Users\\Davide\\.nuget\\packages\\serilog.settings.configuration\\3.1.0\\serilog.settings.configuration.3.1.0.nupkg.sha512",
+    "C:\\Users\\Davide\\.nuget\\packages\\serilog.sinks.console\\3.1.1\\serilog.sinks.console.3.1.1.nupkg.sha512",
     "C:\\Users\\Davide\\.nuget\\packages\\serilog.sinks.file\\4.1.0\\serilog.sinks.file.4.1.0.nupkg.sha512",
     "C:\\Users\\Davide\\.nuget\\packages\\ssh.net\\2016.1.0\\ssh.net.2016.1.0.nupkg.sha512",
     "C:\\Users\\Davide\\.nuget\\packages\\sshnet.security.cryptography\\1.2.0\\sshnet.security.cryptography.1.2.0.nupkg.sha512",

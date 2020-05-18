@@ -34,16 +34,17 @@ namespace Middle_Notes.Saver.Repositories
             }
         }
 
-        public bool InsertWebPage(WebPage page)
+        public bool UpdateWebPage(WebPage page)
         {
-            var sql = "INSERT INTO websites_pages_masters (website_id, url, html, is_done, is_deleted, has_error) " +
-                "VALUES ( " +
-                 "" + EscapeIntegerValue(page.WebsiteId) + ", " +
-                 "" + EscapeAndQuoteStringValue(page.Url) + ", " +
-                 "" + EscapeAndQuoteStringValue(page.Html) + ", " +
-                 "" + EscapeBooleanValue(page.IsDone) + ", " +
-                 "" + EscapeBooleanValue(page.IsDeleted) + ", " +
-                 "" + EscapeBooleanValue(page.HasError) + " )";
+            var sql = "UPDATE websites_pages_masters SET html=" +
+                    EscapeAndQuoteStringValue(page.Html) + ", is_done=" +
+                    EscapeBooleanValue(page.IsDone) +
+                    ", is_deleted = " +
+                    EscapeBooleanValue(page.IsDeleted) +
+                    ", has_error = " +
+                    EscapeBooleanValue(page.HasError) +
+                    " WHERE websites_pages_master_id =" +
+                    EscapeIntegerValue(page.WebsitesPageId);
             return ExecuteNonQuery(sql);
         }
     }

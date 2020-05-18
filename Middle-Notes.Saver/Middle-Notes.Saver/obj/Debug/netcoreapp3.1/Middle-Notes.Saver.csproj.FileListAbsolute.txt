@@ -55,4 +55,5 @@ C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-No
 C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\obj\Debug\netcoreapp3.1\Middle-Notes.Saver.genruntimeconfig.cache
 C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\bin\Debug\netcoreapp3.1\Serilog.Sinks.File.dll
+C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\bin\Debug\netcoreapp3.1\Serilog.Sinks.Console.dll
 C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\obj\Debug\netcoreapp3.1\Middle-Notes.Saver.csproj.CoreCompileInputs.cache

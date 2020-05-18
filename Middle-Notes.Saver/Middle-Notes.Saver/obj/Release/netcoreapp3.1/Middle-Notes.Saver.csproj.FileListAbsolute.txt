@@ -55,3 +55,4 @@ C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-No
 C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\obj\Release\netcoreapp3.1\Middle-Notes.Saver.dll
 C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\obj\Release\netcoreapp3.1\Middle-Notes.Saver.pdb
 C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\obj\Release\netcoreapp3.1\Middle-Notes.Saver.genruntimeconfig.cache
+C:\Users\Davide\Documents\GitHub\middle-notes.saver\Middle-Notes.Saver\Middle-Notes.Saver\obj\Release\netcoreapp3.1\Middle-Notes.Saver.csprojAssemblyReference.cache

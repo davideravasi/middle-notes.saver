@@ -48,7 +48,7 @@ namespace Middle_Notes.Saver.Repositories
 
         public bool ExistsWebPage(int websiteId, string url)
         {
-            var sql = "SELECT COUNT(*) AS count FROM websites_pages_aggregates_data WHERE website_id=" + EscapeIntegerValue(websiteId)
+            var sql = "SELECT COUNT(*) AS count FROM websites_pages_aggregates WHERE website_id=" + EscapeIntegerValue(websiteId)
                     + " AND url=" + EscapeAndQuoteStringValue(url);
             using (var rdr = GetDataReader(sql))
             {
