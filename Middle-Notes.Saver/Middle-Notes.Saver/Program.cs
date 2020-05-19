@@ -71,9 +71,10 @@ namespace Middle_Notes.Saver
             var webPagesForTask = new List<IEnumerable<WebPage>>();
             var maxDegreeOfParallelism = options.MaxDegreeOfParallelism < webPagesCount
                 ? options.MaxDegreeOfParallelism : webPagesCount;
-            for (int i = 0; i < webPagesCount; i += (webPagesCount / maxDegreeOfParallelism))
+            var webPagesForTaskCount = (int)Math.Ceiling((float)webPagesCount / maxDegreeOfParallelism);
+            for (int i = 0; i < options.MaxDegreeOfParallelism; i += 1)
             {
-                webPagesForTask.Add(webPages.Skip(i).Take(webPagesCount / maxDegreeOfParallelism));
+                webPagesForTask.Add(webPages.Skip(i * webPagesForTaskCount).Take(webPagesForTaskCount));
             }
 
             //lock db access
