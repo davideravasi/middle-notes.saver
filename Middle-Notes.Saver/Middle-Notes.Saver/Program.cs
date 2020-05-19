@@ -5,11 +5,9 @@ using Middle_Notes.Saver.Models.Options;
 using Middle_Notes.Saver.Repositories;
 using Serilog;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Middle_Notes.Saver
@@ -36,7 +34,7 @@ namespace Middle_Notes.Saver
             };
 
             var connectionStringOptions = configuration.GetSection("ConnectionStringOptions").Get<ConnectionStringOptions>();
-            var savingOptions = configuration.GetSection("SavingOptions").Get<SavingOptions>();
+            var savingOptionsConfigs = configuration.GetSection("SavingOptionsConfigs").Get<List<SavingOptions>>();
 
             var wr = new WebsitesRepository(connectionStringOptions.DefaultConnectionString);
             var websites = wr.GetWebsitesId();
@@ -44,21 +42,30 @@ namespace Middle_Notes.Saver
             var wmr = new WebPagesMastersRepository(connectionStringOptions.DefaultConnectionString);
             foreach (var website in websites)
             {
-                await SaveWebPages(website, savingOptions, war, wmr, args[0]);
+                await SaveWebPages(website, savingOptionsConfigs, war, wmr, args[0]);
             }
         }
 
-        public static async Task SaveWebPages(Website website, SavingOptions options, 
+        public static async Task SaveWebPages(Website website, List<SavingOptions> optionsConfig, 
             WebPagesAggregatesRepository war, WebPagesMastersRepository wmr, string arg)
         {
+            if (string.IsNullOrEmpty(arg)) return;
+            var options = optionsConfig.FirstOrDefault(opt => opt.Operation == arg);
+            if (options == null) return;
             IEnumerable<WebPage> webPages = null;
             switch (arg?.ToLower())
             {
-                case "aggregates":
+                case "todo-aggregates":
                     webPages = war.GetWebPagesToSave(website.Id);
                     break;
-                case "masters":
+                case "update-aggregates":
+                    webPages = war.GetWebPagesToUpdate(website.Id);
+                    break;
+                case "todo-masters":
                     webPages = wmr.GetWebPagesToSave(website.Id);
+                    break;
+                case "update-masters":
+                    webPages = wmr.GetWebPagesToUpdate(website.Id);
                     break;
                 default:
                     break;
@@ -83,6 +90,7 @@ namespace Middle_Notes.Saver
             //Create task list
             var tasks = new List<Task>();
 
+            var aggregatesUrl = webPages.Select(wp => wp.Url);
             var aggregatesNewUrl = new List<string>();
             for (int i = 0; i < webPagesForTask.Count; i++)
             {
@@ -110,7 +118,8 @@ namespace Middle_Notes.Saver
                             }
                             switch (arg?.ToLower())
                             {
-                                case "aggregates":
+                                case "todo-aggregates":
+                                case "update-aggregates":
                                     lock (writingLocker)
                                     {
                                         war.UpdateWebPage(savedWebPage);
@@ -120,11 +129,12 @@ namespace Middle_Notes.Saver
                                     {
                                         foreach (var newUrl in pageAggregatesNewUrl)
                                         {
-                                            if (!aggregatesNewUrl.Contains(newUrl)) aggregatesNewUrl.Add(newUrl);
+                                            if (!aggregatesNewUrl.Contains(newUrl) && !aggregatesUrl.Contains(newUrl)) aggregatesNewUrl.Add(newUrl);
                                         }
                                     }
                                     break;
-                                case "masters":
+                                case "todo-masters":
+                                case "update-masters":
                                     lock (writingLocker)
                                     {
                                         wmr.UpdateWebPage(savedWebPage);
@@ -139,7 +149,7 @@ namespace Middle_Notes.Saver
             }
             await Task.WhenAll(tasks);
 
-            if (aggregatesNewUrl.Count == 0 || arg != "aggregates") return;
+            if (aggregatesNewUrl.Count == 0 || !arg.Contains("aggregates")) return;
             foreach (var newUrl in aggregatesNewUrl)
             {
                 if (war.ExistsWebPage(website.Id, newUrl)) continue;
